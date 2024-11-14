@@ -4,13 +4,20 @@ import Link from "next/link";
 export default function NavLinks({ isMenuOpen, handleLinkClick }) {
   return (
     <>
-      {isMenuOpen && <StyledBackground onClick={handleLinkClick} />}
+      <StyledBackground $isMenuOpen={isMenuOpen} onClick={handleLinkClick} />
+
       <StyledNavLinks $isMenuOpen={isMenuOpen}>
-            <StyledLink href="/" onClick={handleLinkClick}>
-          Home
-        </StyledLink>
         <StyledLink href="/" onClick={handleLinkClick}>
-          Portfolio
+          HOME
+        </StyledLink>
+        <StyledLink href="/graphic" onClick={handleLinkClick}>
+          GRAPHIC DESIGN
+        </StyledLink>
+        <StyledLink href="/development" onClick={handleLinkClick}>
+          WEB DEVELOPMENT
+        </StyledLink>
+        <StyledLink href="/contact" onClick={handleLinkClick}>
+          CONTACT
         </StyledLink>
       </StyledNavLinks>
     </>
@@ -24,9 +31,11 @@ const StyledBackground = styled.div`
   width: 200px;
   height: 250px;
   background-color: var(--yellow);
-  border-radius: 0 0 40% 40%;
-  opacity: 0.9;
-  
+  border-radius: 0 0 50% 50%;
+  opacity: ${({ $isMenuOpen }) => ($isMenuOpen ? 0.95 : 0)};
+  transform: ${({ $isMenuOpen }) =>
+    $isMenuOpen ? "translateY(0)" : "translateY(-100%)"};
+  transition: transform 0.3s ease, opacity 0.5s ease;
 `;
 
 const StyledNavLinks = styled.nav`
@@ -35,7 +44,7 @@ const StyledNavLinks = styled.nav`
   gap: 1rem;
   position: fixed;
   top: 75px;
-  right: 67px;
+  right: 23px;
   
 
   @media (min-width: 768px) {
@@ -51,6 +60,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: #000;
   text-align: center;
+  font-size: 0.9rem;
 
   &:hover {
     color: #fff;

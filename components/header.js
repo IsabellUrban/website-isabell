@@ -41,9 +41,10 @@ const StyledHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 0px 10px;
   position: fixed;
   width: 100vw;
+  height: 10vh;
   background-color: #fff;
   top: 0;
   left: 0;
@@ -55,12 +56,12 @@ const StyledHeader = styled.header`
 `;
 
 const LogoWrapper = styled.div`
-  margin-left: 8px;
+  padding: 14px 0px 0px 5px;
 `;
 
 
 const StyledLogo = styled(Logo2)`
-  width: 7vh;
+  width: 6vh;
   height: auto;
   color: #000;
 
