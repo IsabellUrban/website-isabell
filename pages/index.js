@@ -1,9 +1,13 @@
 import styled from "styled-components";
-
+import Image from "next/image";
+import Profilbild from "@/public/image/Profilbild.jpg";
 
 export default function HomePage() {
   return (
     <StyledMain>
+      <ImageContainer>
+        <StyledImage src={Profilbild} alt="Profilbild" />
+      </ImageContainer>
       <h1>Hello from Next.js</h1>
     </StyledMain>
   );
@@ -20,7 +24,22 @@ margin: 0 auto;
   position: static;
   display: grid;
   grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 1.2rem;
   align-items: center;
   justify-items: center;
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  grid-row: 1/3;
+  grid-column: 2/4;
+  width: 100%;
+  height: 100%;
+`;
+
+const StyledImage = styled(Image)`
+  width: 100%;
+  height: auto;
 `;

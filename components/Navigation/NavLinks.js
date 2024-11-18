@@ -67,7 +67,7 @@ const StyledLink = styled(Link)`
   }
 
   @media (min-width: 768px) {
-    font-size: 1.25rem;
+    font-size: 1rem;
 
     &:hover {
       color: var(--yellow);

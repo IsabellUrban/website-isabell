@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Logo2 from "@/public/Logo2.svg";
-import MenuIcon from "./MenuIcon";
-import CloseIcon from "./CloseIcon";
-import NavLinks from "./NavLinks";
+import MenuIcon from "./Navigation/MenuIcon.js";
+import CloseIcon from "./Navigation/CloseIcon.js";
+import NavLinks from "./Navigation/NavLinks.js";
 import { useState } from "react";
 
 export default function Header () {
@@ -41,22 +41,22 @@ const StyledHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 10px;
+  padding: 0px 25px;
   position: fixed;
   width: 100vw;
   height: 10vh;
   background-color: #fff;
-  top: 0;
+  top: 10px;
   left: 0;
   z-index: 10;
 
-    @media (min-width: 768px) {
+  @media (min-width: 768px) {
     flex-direction: row;
-    }
+  }
 `;
 
 const LogoWrapper = styled.div`
-  padding: 14px 0px 0px 5px;
+  display: flex;
 `;
 
 
@@ -67,6 +67,11 @@ const StyledLogo = styled(Logo2)`
 
   &:hover {
     color: var(--yellow);
+  }
+
+  @media (min-width: 768px) {
+    width: 7.5vh;
+    height: auto;
   }
 `;
 
