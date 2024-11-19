@@ -62,7 +62,7 @@ const LogoWrapper = styled.div`
 
 
 const StyledLogo = styled(Logo2)`
-  width: 7vh;
+  width: 8vh;
   height: auto;
   color: #000;
 
@@ -71,7 +71,7 @@ const StyledLogo = styled(Logo2)`
   }
 
   @media (min-width: 768px) {
-    width: 7.5vh;
+    width: 8vh;
     height: auto;
   }
 `;

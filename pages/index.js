@@ -35,6 +35,10 @@ const StyledMain = styled.main`
   grid-template-rows: auto auto;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -42,6 +46,10 @@ const ImageContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
+
+  @media (min-width: 768px) {
+    grid-column: 3 / span 3;
+  }
 `;
 
 const StyledImage = styled(Image)`
@@ -62,6 +70,11 @@ const HeadlineWrapper = styled.div`
   background: rgba(255, 255, 255, 0.8);
   padding: 1rem;
   border-radius: 50px 0px 50px 0px;
+
+  @media (min-width: 768px) {
+    transform: translate(20%, 42%);
+    max-width	: 500px;
+  }
 `;
 
 const StyledBar = styled.div`
@@ -72,7 +85,7 @@ const StyledBar = styled.div`
 `;
 
 const StyledHeadline = styled.h2`
-  color: #000;
+  color: var(--yellow);
   font: var(--main-headline);
   margin: 0;
 
