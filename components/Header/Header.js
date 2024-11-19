@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Logo2 from "@/public/Logo2.svg";
-import MenuIcon from "./Navigation/MenuIcon.js";
-import CloseIcon from "./Navigation/CloseIcon.js";
-import NavLinks from "./Navigation/NavLinks.js";
+import MenuIcon from "../Navigation/MenuIcon.js";
+import CloseIcon from "../Navigation/CloseIcon.js";
+import NavLinks from "../Navigation/NavLinks.js";
 import { useState } from "react";
 
 export default function Header () {
