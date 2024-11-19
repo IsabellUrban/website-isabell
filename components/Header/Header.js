@@ -43,15 +43,16 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   padding: 0px 25px;
   position: fixed;
-  width: 100vw;
+  width: 100%;
   height: 10vh;
   background-color: #fff;
-  top: 10px;
+  top: 0;
   left: 0;
   z-index: 10;
 
   @media (min-width: 768px) {
     flex-direction: row;
+    top: 10px;
   }
 `;
 
@@ -61,7 +62,7 @@ const LogoWrapper = styled.div`
 
 
 const StyledLogo = styled(Logo2)`
-  width: 6vh;
+  width: 7vh;
   height: auto;
   color: #000;
 
@@ -77,11 +78,16 @@ const StyledLogo = styled(Logo2)`
 
 const BarElement = styled.div`
   position: fixed;
-  top: 0;
+  top: 10vh;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 10px;
   background-color: var(--yellow);
+
+  @media (min-width: 768px) {
+    top: 0;
+    left: 0;
+  }
 `;
 
 const HiddenHeadline = styled.h1`
