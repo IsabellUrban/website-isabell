@@ -8,7 +8,7 @@ export default function HomePage() {
       <ImageContainer>
         <StyledImage src={Profilbild} alt="Profilbild" />
       </ImageContainer>
-      <h1>Hello from Next.js</h1>
+      <h1>Hi I'm Isabell</h1>
     </StyledMain>
   );
 }
