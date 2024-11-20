@@ -7,7 +7,7 @@ export default function NavLinks({ isMenuOpen, handleLinkClick }) {
     <>
       <StyledBackground $isMenuOpen={isMenuOpen} onClick={handleLinkClick} />
       <StyledOpacityContainer
-        isVisible={isMenuOpen}
+        $isVisible={isMenuOpen}
         onClick={handleLinkClick}
       />
       <StyledNavLinks $isMenuOpen={isMenuOpen}>
