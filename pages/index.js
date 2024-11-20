@@ -19,7 +19,7 @@ export default function HomePage() {
           $colSpan="1 / span 4"
           $colSpanMd="2 / span 4"
           $rowSpan="1"
-          $rowSpanMd="3 / span 2"
+          $rowSpanMd="1 / span 2"
         >
           <HeroSection
             image={Profilbild02}
