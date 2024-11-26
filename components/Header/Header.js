@@ -3,6 +3,7 @@ import Logo2 from "@/public/Logo2.svg";
 import MenuIcon from "../Navigation/MenuIcon.js";
 import CloseIcon from "../Navigation/CloseIcon.js";
 import NavLinks from "../Navigation/NavLinks.js";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Header () {
@@ -20,8 +21,11 @@ return (
   <>
     <StyledHeader>
       <BarElement />
+
       <LogoWrapper>
-        <StyledLogo />
+        <StyledLink href="/">
+          <StyledLogo />
+        </StyledLink>
       </LogoWrapper>
 
       {isMenuOpen ? (
@@ -56,6 +60,18 @@ const StyledHeader = styled.header`
   }
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+`;
+
 const LogoWrapper = styled.div`
   display: flex;
 `;
@@ -67,6 +83,7 @@ const StyledLogo = styled(Logo2)`
   color: #000;
 
   &:hover {
+    transform: scale(1.02);
     color: var(--yellow);
   }
 

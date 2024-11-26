@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import Image from "next/image";
+import Link from "next/link";
 
 
-export default function CardSection({image, title, subtitle}) {
+export default function CardSection({image, title, subtitle, href}) {
   return (
+    <StyledLink href={href}>
     <StyledCardSection>
       <CardContentContainer>
         <ImageWrapper>
@@ -20,21 +22,29 @@ export default function CardSection({image, title, subtitle}) {
         </TextWrapper>
       </CardContentContainer>
     </StyledCardSection>
+    </StyledLink>
   );
 }
 
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+`;
+
 const StyledCardSection = styled.div`
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 1rem;
-  max-width: 100%;
   height: 100%;
   background-color: var(--rosa);
   padding: 1rem;
   border-radius: 0px 50px 0px 50px;
-  overflow: hidden;
 
   @media (min-width: 768px) {
     max-width: 500px;
@@ -50,6 +60,7 @@ const CardContentContainer = styled.div`
 
 const ImageWrapper = styled.div`
   position: relative;
+  align-self: center;
   width: 100px;
   height: 100px;
   flex-shrink: 0;

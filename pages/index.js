@@ -37,7 +37,7 @@ export default function HomePage() {
         >
           <TextSection
             title={`Nice to meet you!`}
-            subheadline={`Something about me:`}  
+            subheadline={`Something about me:`}
             text={`I'm an accomplished designer with over a decade of experience in the field. I've worked as a freelancer in both Wellington, New Zealand, and Vancouver, Canada.
 
 I recently completed an intensive web development bootcamp at Neue Fische, where I learned to code and merged my creative and technical expertise.
@@ -60,6 +60,7 @@ Clean code, beautiful design and a seamless user experience are key. If you're l
             image={grafik}
             title="Graphic Design"
             subtitle="Dive into my graphic design portfolio to uncover creative projects!"
+            href="/graphic-design"
           />
         </GridItem>
         <GridItem
@@ -72,6 +73,7 @@ Clean code, beautiful design and a seamless user experience are key. If you're l
             image={web}
             title="Web Development"
             subtitle="Check out my portfolio to see examples of my web development work and coding skills."
+            href="/web-development"
           />
         </GridItem>
       </GridMain>
