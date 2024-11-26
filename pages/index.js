@@ -7,6 +7,7 @@ import Profilbild02 from "@/public/image/Profilbild02.jpg";
 import hintergrund01 from "@/public/image/hintergrund01.jpg";
 import grafik from "@/public/image/grafik.png";
 import web from "@/public/image/web.png";
+import TextSection from "@/components/TextSection/TextSection";
 
 export default function HomePage() {
   return (
@@ -17,7 +18,7 @@ export default function HomePage() {
       <GridMain>
         <GridItem
           $colSpan="1 / span 4"
-          $colSpanMd="2 / span 4"
+          $colSpanMd="3 / span 5"
           $rowSpan="1"
           $rowSpanMd="1 / span 2"
         >
@@ -27,11 +28,33 @@ export default function HomePage() {
             subtitle="Frontend Web Developer and Graphic Designer with a passion for creating beautiful and functional designs."
           />
         </GridItem>
+
         <GridItem
           $colSpan="1 / span 4"
-          $colSpanMd="1 / span 3"
+          $colSpanMd="1 / span 10"
           $rowSpan="4"
-          $rowSpanMd="7 / span 2"
+          $rowSpanMd="5 / span 2"
+        >
+          <TextSection
+            title={`Nice to meet you!`}
+            subheadline={`Something about me:`}  
+            text={`I'm an accomplished designer with over a decade of experience in the field. I've worked as a freelancer in both Wellington, New Zealand, and Vancouver, Canada.
+
+I recently completed an intensive web development bootcamp at Neue Fische, where I learned to code and merged my creative and technical expertise.
+
+My design background and eye for detail make me perfect for web development. 
+
+I am excited to build user-friendly digital experiences that balance functionality with style.
+
+Clean code, beautiful design and a seamless user experience are key. If you're looking for creative and tech-savvy, let's connect!`}
+          />
+        </GridItem>
+
+        <GridItem
+          $colSpan="1 / span 4"
+          $colSpanMd="2 / span 4"
+          $rowSpan="5"
+          $rowSpanMd="7 / span 1"
         >
           <CardSection
             image={grafik}
@@ -41,9 +64,9 @@ export default function HomePage() {
         </GridItem>
         <GridItem
           $colSpan="1 / span 4"
-          $colSpanMd="5 / span 3"
-          $rowSpan="5"
-          $rowSpanMd="7 / span 2"
+          $colSpanMd="6 / span 4"
+          $rowSpan="6"
+          $rowSpanMd="7 / span 1"
         >
           <CardSection
             image={web}

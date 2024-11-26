@@ -31,10 +31,11 @@ export default createGlobalStyle`
     --orange: #F27457;
     --green:#127369;
     --rosa: #F4E2DE;
+    --schwarz: #000000;
 
     --main-headline:  700 1.7rem ${limelight.style.fontFamily}, system-ui;
     --sub-headline:  400 1.1rem ${montserrat.style.fontFamily}, system-ui;
-    --text: 400 0.75rem ${montserrat.style.fontFamily}, system
+    --text: 500 0.9rem ${montserrat.style.fontFamily}, system
   }
 
   body {

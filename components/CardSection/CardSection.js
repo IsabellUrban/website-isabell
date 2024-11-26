@@ -5,13 +5,20 @@ import Image from "next/image";
 export default function CardSection({image, title, subtitle}) {
   return (
     <StyledCardSection>
-      <ImageWrapper>
-        <StyledImage src={image} alt={title} />
-      </ImageWrapper>
-      <TextWrapper>
-        <StyledHeadline>{title}</StyledHeadline>
-        <StyledSubheadline>{subtitle}</StyledSubheadline>
-      </TextWrapper>
+      <CardContentContainer>
+        <ImageWrapper>
+          <StyledImage
+            src={image}
+            alt={title}
+            fill={true}
+            sizes="100px"
+          />
+        </ImageWrapper>
+        <TextWrapper>
+          <StyledHeadline>{title}</StyledHeadline>
+          <StyledSubheadline>{subtitle}</StyledSubheadline>
+        </TextWrapper>
+      </CardContentContainer>
     </StyledCardSection>
   );
 }
@@ -20,7 +27,7 @@ export default function CardSection({image, title, subtitle}) {
 const StyledCardSection = styled.div`
   display: flex;
   align-items: flex-start;
-justify-content: center;
+  justify-content: center;
   gap: 1rem;
   max-width: 100%;
   height: 100%;
@@ -34,16 +41,25 @@ justify-content: center;
   }
 `;
 
-const ImageWrapper = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  
+const CardContentContainer = styled.div`
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 1rem;
 `;
 
+const ImageWrapper = styled.div`
+  position: relative;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+`;
+
+
 const StyledImage = styled(Image)`
-  width: 105px;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 
   @media (min-width: 768px) {
     max-width: 100px;
@@ -57,7 +73,7 @@ const TextWrapper = styled.div`
 `;
 
 const StyledHeadline = styled.p`
-  color: var(--orange);
+  color: #000;
   font: var(--main-headline);
   font-size: 1.2rem;
   margin: 0;
