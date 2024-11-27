@@ -48,15 +48,14 @@ const StyledHeader = styled.header`
   padding: 0px 25px;
   position: fixed;
   width: 100%;
-  height: 10vh;
+  height: 12vh;
   background-color: #fff;
-  top: 0;
+  top: 8px;
   left: 0;
   z-index: 10;
 
   @media (min-width: 768px) {
     flex-direction: row;
-    top: 10px;
   }
 `;
 
@@ -88,23 +87,18 @@ const StyledLogo = styled(Logo2)`
   }
 
   @media (min-width: 768px) {
-    width: 8vh;
+    width: 10vh;
     height: auto;
   }
 `;
 
 const BarElement = styled.div`
   position: fixed;
-  top: 10vh;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 10px;
+  height: 8px;
   background-color: var(--yellow);
-
-  @media (min-width: 768px) {
-    top: 0;
-    left: 0;
-  }
 `;
 
 const HiddenHeadline = styled.h1`

@@ -67,9 +67,11 @@ const StyledLink = styled(Link)`
   color: #000;
   text-align: center;
   font-size: 0.9rem;
+  transition: transform 0.2s ease;
 
   &:hover {
-    color: #fff;
+    transform: scale(1.02);
+    color: var(--white);
   }
 
   @media (min-width: 768px) {
@@ -77,6 +79,7 @@ const StyledLink = styled(Link)`
 
     &:hover {
       color: var(--yellow);
+      transform: scale(1.02);
     }
   }
 `;
@@ -90,5 +93,5 @@ const StyledOpacityContainer = styled.div`
   z-index: 2;
   background-color: #fff;
   opacity: 0.75;
-  display: ${({ isVisible }) => (isVisible ? "block" : "none")};
+  display: ${({ $isVisible }) => ($isVisible ? "block" : "none")};
 `;

@@ -22,16 +22,21 @@ const ImageWrapper = styled.div`
 `;
 
 const ProfileImage = styled(Image)`
-  border-radius: 0px 50px 0px 50px;
+  /* border-radius: 0px 50px 0px 50px; */
   width: 100%;
   height: auto;
+
+  @media (min-width: 768px) {
+    max-height: 400px;
+    object-fit: cover;
+  }
 `;
 
 const StyledSection = styled.section`
   position: absolute;
   bottom: 0;
   left: 0;
-  transform: translate(20%, 35%);
+  transform: translate(20%, 45%);
   display: flex;
   align-items: flex-start;
   gap: 1rem;
@@ -45,7 +50,7 @@ const StyledSection = styled.section`
 
   @media (min-width: 768px) {
     transform: translate(20%, 42%);
-    max-width: 500px;
+    max-width: 750px;
   }
 `;
 
@@ -61,6 +66,7 @@ const StyledHeadline = styled.h2`
   margin: 0;
   flex-grow: 1;
   overflow: hidden;
+  text-transform: uppercase;
 `;
 
 const StyledSubheadline = styled.p`

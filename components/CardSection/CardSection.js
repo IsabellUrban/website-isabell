@@ -71,6 +71,7 @@ const StyledImage = styled(Image)`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 0 0 0 50% ;
 
   @media (min-width: 768px) {
     max-width: 100px;
@@ -105,6 +106,6 @@ const StyledSubheadline = styled.p`
   overflow: hidden;
 
     @media (min-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1rem;
     }
 `;

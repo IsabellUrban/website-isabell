@@ -4,7 +4,8 @@ import { GridMain, GridItem } from "@/styles/grid";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import CardSection from "@/components/CardSection/CardSection";
 import Profilbild02 from "@/public/image/Profilbild02.jpg";
-import hintergrund01 from "@/public/image/hintergrund01.jpg";
+import hintergrund03 from "@/public/image/hintergrund03.jpg";
+import macbook from "@/public/image/macbook.jpg";
 import grafik from "@/public/image/grafik.png";
 import web from "@/public/image/web.png";
 import TextSection from "@/components/TextSection/TextSection";
@@ -13,7 +14,7 @@ export default function HomePage() {
   return (
     <Layout>
       <BackgroundWrapper>
-        <StyledBackground src={hintergrund01} alt="Background" />
+        <StyledBackground src={hintergrund03} alt="Background" />
       </BackgroundWrapper>
       <GridMain>
         <GridItem
@@ -24,7 +25,7 @@ export default function HomePage() {
         >
           <HeroSection
             image={Profilbild02}
-            title="Hi I'm Isabell."
+            title="Hi I'm Isabell"
             subtitle="Frontend Web Developer and Graphic Designer with a passion for creating beautiful and functional designs."
           />
         </GridItem>
@@ -36,6 +37,7 @@ export default function HomePage() {
           $rowSpanMd="5 / span 2"
         >
           <TextSection
+            image={macbook}
             title={`Nice to meet you!`}
             subheadline={`Something about me:`}
             text={`I'm an accomplished designer with over a decade of experience in the field. I've worked as a freelancer in both Wellington, New Zealand, and Vancouver, Canada.
@@ -54,7 +56,7 @@ Clean code, beautiful design and a seamless user experience are key. If you're l
           $colSpan="1 / span 4"
           $colSpanMd="2 / span 4"
           $rowSpan="5"
-          $rowSpanMd="7 / span 1"
+          $rowSpanMd="7 / span 3"
         >
           <CardSection
             image={grafik}
@@ -67,7 +69,7 @@ Clean code, beautiful design and a seamless user experience are key. If you're l
           $colSpan="1 / span 4"
           $colSpanMd="6 / span 4"
           $rowSpan="6"
-          $rowSpanMd="7 / span 1"
+          $rowSpanMd="7 / span 3"
         >
           <CardSection
             image={web}
