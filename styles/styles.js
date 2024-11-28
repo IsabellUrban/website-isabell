@@ -15,6 +15,7 @@ const montserrat = Montserrat({
 
 
 
+
 export default createGlobalStyle`
   *,
   *::before,
@@ -38,10 +39,23 @@ export default createGlobalStyle`
     --sub-headline:  400 1.1rem ${montserrat.style.fontFamily}, system-ui;
     --text: 500 1rem ${montserrat.style.fontFamily}, system
   }
-
+    
+  html,
   body {
     margin: 0;
     padding: 0;
     font-family: ${montserrat.style.fontFamily}, system-ui;
   }
+
+  #__next {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main {
+    flex: 1;
+  }
+
+
 `;

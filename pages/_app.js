@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer/Footer.js";
 import Header from "../components/Header/Header.js";
 import GlobalStyle from "../styles/styles.js";
 
@@ -5,8 +6,10 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Header/>
+      <Header />
+
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 }
