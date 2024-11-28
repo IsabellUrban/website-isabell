@@ -3,6 +3,7 @@ import Logo2 from "@/public/Logo2.svg";
 import MenuIcon from "../Navigation/MenuIcon.js";
 import CloseIcon from "../Navigation/CloseIcon.js";
 import NavLinks from "../Navigation/NavLinks.js";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Header () {
@@ -20,8 +21,11 @@ return (
   <>
     <StyledHeader>
       <BarElement />
+
       <LogoWrapper>
-        <StyledLogo />
+        <StyledLink href="/">
+          <StyledLogo />
+        </StyledLink>
       </LogoWrapper>
 
       {isMenuOpen ? (
@@ -43,15 +47,27 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   padding: 0px 25px;
   position: fixed;
-  width: 100vw;
-  height: 10vh;
+  width: 100%;
+  height: 12vh;
   background-color: #fff;
-  top: 10px;
+  top: 8px;
   left: 0;
   z-index: 10;
 
   @media (min-width: 768px) {
     flex-direction: row;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.02);
   }
 `;
 
@@ -61,16 +77,17 @@ const LogoWrapper = styled.div`
 
 
 const StyledLogo = styled(Logo2)`
-  width: 6vh;
+  width: 8vh;
   height: auto;
   color: #000;
 
   &:hover {
+    transform: scale(1.02);
     color: var(--yellow);
   }
 
   @media (min-width: 768px) {
-    width: 7.5vh;
+    width: 10vh;
     height: auto;
   }
 `;
@@ -79,8 +96,8 @@ const BarElement = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 10px;
+  width: 100%;
+  height: 8px;
   background-color: var(--yellow);
 `;
 

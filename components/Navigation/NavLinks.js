@@ -1,11 +1,15 @@
 import styled from "styled-components";
+import useState from "react";
 import Link from "next/link";
 
 export default function NavLinks({ isMenuOpen, handleLinkClick }) {
   return (
     <>
       <StyledBackground $isMenuOpen={isMenuOpen} onClick={handleLinkClick} />
-
+      <StyledOpacityContainer
+        $isVisible={isMenuOpen}
+        onClick={handleLinkClick}
+      />
       <StyledNavLinks $isMenuOpen={isMenuOpen}>
         <StyledLink href="/" onClick={handleLinkClick}>
           HOME
@@ -36,6 +40,7 @@ const StyledBackground = styled.div`
   transform: ${({ $isMenuOpen }) =>
     $isMenuOpen ? "translateY(0)" : "translateY(-100%)"};
   transition: transform 0.3s ease, opacity 0.5s ease;
+  z-index: 3;
 `;
 
 const StyledNavLinks = styled.nav`
@@ -45,6 +50,7 @@ const StyledNavLinks = styled.nav`
   position: fixed;
   top: 75px;
   right: 23px;
+  z-index: 4;
   
 
   @media (min-width: 768px) {
@@ -61,9 +67,11 @@ const StyledLink = styled(Link)`
   color: #000;
   text-align: center;
   font-size: 0.9rem;
+  transition: transform 0.2s ease;
 
   &:hover {
-    color: #fff;
+    transform: scale(1.02);
+    color: var(--white);
   }
 
   @media (min-width: 768px) {
@@ -71,6 +79,19 @@ const StyledLink = styled(Link)`
 
     &:hover {
       color: var(--yellow);
+      transform: scale(1.02);
     }
   }
+`;
+
+const StyledOpacityContainer = styled.div`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-color: #fff;
+  opacity: 0.75;
+  display: ${({ $isVisible }) => ($isVisible ? "block" : "none")};
 `;
