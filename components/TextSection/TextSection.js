@@ -5,7 +5,13 @@ export default function TextSection({ title, subheadline, text, image }) {
   return (
     <StyledTextSection>
       <ImageWrapper>
-        <StyledImage src={image} alt={title} fill={true} sizes="100px" />
+        <StyledImage
+          src={image}
+          alt={title}
+          fill={true}
+          sizes="(min-width: 768px) 350px, 100vw"
+          quality={100}
+        />
       </ImageWrapper>
       <TextWrapper>
         <HeadlineWrapper>
@@ -55,6 +61,7 @@ const StyledImage = styled(Image)`
   @media (min-width: 768px) {
     object-fit: cover;
     visibility: visible;
+    quality: 100;
   }
 `;
 
