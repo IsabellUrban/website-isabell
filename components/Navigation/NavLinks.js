@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import useState from "react";
 import Link from "next/link";
 
 export default function NavLinks({ isMenuOpen, handleLinkClick }) {
@@ -64,7 +63,7 @@ const StyledNavLinks = styled.nav`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: #000;
+  color: var(--black);
   text-align: center;
   font-size: 0.9rem;
   transition: transform 0.2s ease;

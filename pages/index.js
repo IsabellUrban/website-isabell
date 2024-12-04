@@ -3,11 +3,11 @@ import Image from "next/image";
 import { GridMain, GridItem } from "@/styles/grid";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import CardSection from "@/components/CardSection/CardSection";
-import Profilbild02 from "@/public/image/Profilbild02.jpg";
-import hintergrund03 from "@/public/image/hintergrund03.jpg";
-import macbook from "@/public/image/macbook.jpg";
-import grafik from "@/public/image/grafik.png";
-import web from "@/public/image/web.png";
+import Profilbild02 from "@/public/images/Profilbild02.jpg";
+import hintergrund03 from "@/public/images/hintergrund03.jpg";
+import macbook from "@/public/images/macbook.jpg";
+import grafik from "@/public/images/grafik.png";
+import web from "@/public/images/web.png";
 import TextSection from "@/components/TextSection/TextSection";
 
 export default function HomePage() {

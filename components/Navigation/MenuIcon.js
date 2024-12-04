@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Menu from "@/public/Menu.svg";	
+import Menu from "@/public/icons/Menu.svg";	
 
 
 export default function MenuIcon({ onClick }) {
