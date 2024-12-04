@@ -1,16 +1,17 @@
 import useEmblaCarousel from "embla-carousel-react";
 import styled from "styled-components";
 import Autoplay from "embla-carousel-autoplay";
+import ClassNames from "embla-carousel-class-names";
 import { useCallback } from "react";
 import ArrowLeft from "@/public/icons/Arrow-left.svg";
 import ArrowRight from "@/public/icons/Arrow-right.svg";
-import grafik from "@/public/images/grafik.png";
-import web from "@/public/images/web.png";
 import Image from "next/image";
 
-export default function EmblaCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, 
-    [Autoplay({delay: 5000})]);
+export default function EmblaCarousel({images}) {
+const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+  Autoplay({ delay: 5000 }),
+  ClassNames(),
+]);
 
       const scrollPrev = useCallback(() => {
         if (emblaApi) emblaApi.scrollPrev();
@@ -24,12 +25,16 @@ export default function EmblaCarousel() {
     <div>
       <ViewportEmblaCarousel ref={emblaRef}>
         <ContentContainer>
-          <StyledSlide>
-            <Image src={grafik} alt="grafik" />
-          </StyledSlide>
-          <StyledSlide>
-            <Image src={web} alt="web" />
-          </StyledSlide>
+          {images.map((image) => (
+            <StyledSlide key={image.id}>
+              <StyledImage
+                src={image.src}
+                alt={image.alt}
+                fill
+                priority={image.id === 1}
+              />
+            </StyledSlide>
+          ))}
         </ContentContainer>
       </ViewportEmblaCarousel>
       <ButtonContainer>
@@ -55,6 +60,7 @@ const ViewportEmblaCarousel = styled.div`
   padding-top: 0;
   position: relative;
   height: 500px;
+  width: 100%;
 
   @media (max-width: 768px) {
     height: 300px;
@@ -105,11 +111,20 @@ const StyledButton = styled.button`
 const ContentContainer = styled.div`
 display: flex;
 align-items: center;
+height: 100%;
 `;
 
 const StyledSlide = styled.div`
   flex: 0 0 100%;
   min-width: 0;
-  align-items: center;
+  position: relative;
+  height: 100%;
+`;
+
+const StyledImage = styled(Image)`
+  width: 100%;
+  height: unset;
+  object-fit: contain;
+  object-position: center;
 `;
 
