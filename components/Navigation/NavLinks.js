@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import useState from "react";
 import Link from "next/link";
 
 export default function NavLinks({ isMenuOpen, handleLinkClick }) {

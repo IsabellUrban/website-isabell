@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import X from "@/public/X.svg";
+import X from "@/public/icons/X.svg";
 
 export default function CloseIcon({ onClick }) {
     return (
