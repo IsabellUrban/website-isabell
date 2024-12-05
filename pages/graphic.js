@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import Image from "next/image";
 import { GridMain, GridItem } from "@/styles/grid";
 import EmblaCarousel from "@/components/ImageCarousel/ImageCarousel";
-import {images} from "@/lib/data-images";
+import {projects} from "@/lib/data-images";
 
 export default function GraphicPortfolio() {
     return (
@@ -27,7 +26,7 @@ export default function GraphicPortfolio() {
           $rowSpan="2"
           $rowSpanMd="2 / span 2"
         >
-          <EmblaCarousel images={images}></EmblaCarousel>
+          <EmblaCarousel projects={projects}></EmblaCarousel>
         </GridItem>
       </GridMain>
     );

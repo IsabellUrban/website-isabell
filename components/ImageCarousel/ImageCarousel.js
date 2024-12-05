@@ -1,50 +1,59 @@
 import useEmblaCarousel from "embla-carousel-react";
 import styled from "styled-components";
 import Autoplay from "embla-carousel-autoplay";
-import ClassNames from "embla-carousel-class-names";
 import { useCallback, useState } from "react";
 import ArrowLeft from "@/public/icons/Arrow-left.svg";
 import ArrowRight from "@/public/icons/Arrow-right.svg";
 import Image from "next/image";
 import ImageModal from "../ImageModal/ImageModal";
 
-export default function EmblaCarousel({images}) {
-const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-  Autoplay({ delay: 4000 }),
-  ClassNames(),
-]);
+export default function EmblaCarousel({projects}) {
+const [emblaRef, emblaApi] = useEmblaCarousel(
+  { loop: true, draggable: true, skipSnaps: false },
+  [
+    Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true }),
+  ]
+);
 
-      const scrollPrev = useCallback(() => {
+      const scrollPrev = useCallback((event) => {
+        event.preventDefault();
+        event.stopPropagation();
         if (emblaApi) emblaApi.scrollPrev();
       }, [emblaApi]);
 
-      const scrollNext = useCallback(() => {
+      const scrollNext = useCallback((event) => {
+        event.preventDefault();
+        event.stopPropagation();
         if (emblaApi) emblaApi.scrollNext();
       }, [emblaApi]);
 
-const [selectedTitle, setSelectedTitle] = useState(null);
+const [selectedProject, setSelectedProject] = useState(null);
 const [isModalOpen, setIsModalOpen] = useState(false);
 
-const filteredImages = images.filter((image) => image.title === selectedTitle);
 
-function handleImageClick (title) {
-  setSelectedTitle(title);
+function handleProjectClick (project) {
+  setSelectedProject(project);
   setIsModalOpen(true);
 };
 
-
+ if (!projects || projects.length === 0) {
+   return <p>No projects available</p>;
+ }
 
   return (
     <div>
       <ViewportEmblaCarousel ref={emblaRef}>
         <ContentContainer>
-          {images.map((image) => (
-            <StyledSlide key={image.id} onClick={() => handleImageClick(image.title)}>
+          {projects.map((project) => (
+            <StyledSlide
+              key={project.id}
+              onClick={() => handleProjectClick(project)}
+            >
               <StyledImage
-                src={image.src}
-                alt={image.alt}
+                src={project.preview}
+                alt={`${project.title} preview`}
                 fill
-                priority={image.id === 1}
+                priority={project.id === 1}
               />
             </StyledSlide>
           ))}
@@ -59,7 +68,11 @@ function handleImageClick (title) {
         </ButtonContainer>
       </ViewportEmblaCarousel>
 
-      <ImageModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} images={filteredImages} />
+      <ImageModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        project={selectedProject}
+      />
     </div>
   );
 }
@@ -88,7 +101,8 @@ const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 2;
+  pointer-events: none;
 
   @media (max-width: 768px) {
     padding: 0 10px;
@@ -108,6 +122,7 @@ const StyledButton = styled.button`
   cursor: pointer;
   pointer-events: auto;
   transition: all 0.2s ease;
+  z-index: 3;
 
   &:hover {
     background: var(--yellow);

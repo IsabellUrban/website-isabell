@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Image from "next/image";
 import X from "@/public/icons/X.svg";
 
-export default function ImageModal({isOpen, onClose, images}) {
- if (!isOpen) return null;
+export default function ImageModal({isOpen, onClose, project}) {
+ if (!isOpen || !project) return null;
 
  return (
    <ModalOverlay onClick={onClose}>
@@ -11,16 +11,25 @@ export default function ImageModal({isOpen, onClose, images}) {
        <IconWrapper onClick={onClose}>
          <StyledCloseIcon />
        </IconWrapper>
+         <StyledTextWrapper>
+              <StyledHeadline>{project.title}</StyledHeadline>
+              <StyledSubheadline>{project.agency}</StyledSubheadline>
+              <StyledText>{project.description}</StyledText>
+            </StyledTextWrapper>
        <ImageGrid>
-         {images.map((image) => (
+         {project.images.map((image) => (
            <ImageWrapper
              key={image.id}
              className={
                image.id === 0
                  ? "large"
                  : image.id % 3 === 0
+                    ? "extralarge"
+                    : image.id % 4 === 0
                  ? "wide"
                  : image.id % 5 === 0
+                    ? "extrawide"
+                    : image.id % 2 === 0
                  ? "tall"
                  : ""
              }
@@ -80,6 +89,43 @@ const StyledCloseIcon = styled(X)`
   fill: var(--yellow);
 `;
 
+const StyledTextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0 1rem 0rem;
+`;
+
+const StyledHeadline = styled.h3`
+  color: var(--yellow);
+  font: var(--main-headline);
+  margin: 0;
+  flex-grow: 1;
+  overflow: hidden;
+  text-transform: uppercase;
+`;
+
+const StyledSubheadline = styled.p`
+  font: var(--sub-headline);
+  color: var(--white);
+  margin: 0;
+  margin-top: 0.5rem;
+  flex-grow: 1;
+  overflow: hidden;
+`;
+
+const StyledText = styled.p`
+  font: var(--text);
+  color: var(--white);
+  text-align: center;
+  font-size: 0.8rem;	
+  margin: 0;
+  margin-top: 0.5rem;
+  flex-grow: 1;
+  overflow: hidden;
+`;
+
 const ImageGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -108,6 +154,17 @@ const ImageWrapper = styled.div`
 
   &.tall {
     grid-row: span 2;
+  }
+
+  @media (min-width: 768px) {
+    &.extralarge {
+      grid-column: span 4;
+      grid-row: span 4;
+    }
+
+    &.extrawide {
+      grid-column: span 4;
+    }
   }
 `;
 
