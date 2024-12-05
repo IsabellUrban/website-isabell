@@ -32,7 +32,7 @@ export default createGlobalStyle`
     --orange: #F27457;
     --green:#36735f;
     --rosa: #F4E2DE;
-    --schwarz: #000000;
+    --black: #000000;
     --white: #ffffff;
 
     --main-headline:  700 1.7rem ${limelight.style.fontFamily}, system-ui;

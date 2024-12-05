@@ -62,7 +62,7 @@ Clean code, beautiful design and a seamless user experience are key. If you're l
             image={grafik}
             title="Graphic Design"
             subtitle="Dive into my graphic design portfolio to uncover creative projects!"
-            href="/graphic-design"
+            href="/graphic"
           />
         </GridItem>
         <GridItem
@@ -75,7 +75,7 @@ Clean code, beautiful design and a seamless user experience are key. If you're l
             image={web}
             title="Web Development"
             subtitle="Check out my portfolio to see examples of my web development work and coding skills."
-            href="/web-development"
+            href="/webdevelopment"
           />
         </GridItem>
       </GridMain>

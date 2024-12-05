@@ -22,7 +22,6 @@ const ImageWrapper = styled.div`
 `;
 
 const ProfileImage = styled(Image)`
-  /* border-radius: 0px 50px 0px 50px; */
   width: 100%;
   height: auto;
 
