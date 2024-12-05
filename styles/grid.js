@@ -30,6 +30,7 @@ export const GridMain = styled.main`
     grid-template-columns: ${gridVariables.desktop.columns};
     gap: ${gridVariables.desktop.gap};
     padding: 0;
+    margin-top: 9rem;
   }
 `;
 

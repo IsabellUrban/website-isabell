@@ -2,14 +2,15 @@ import useEmblaCarousel from "embla-carousel-react";
 import styled from "styled-components";
 import Autoplay from "embla-carousel-autoplay";
 import ClassNames from "embla-carousel-class-names";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import ArrowLeft from "@/public/icons/Arrow-left.svg";
 import ArrowRight from "@/public/icons/Arrow-right.svg";
 import Image from "next/image";
+import ImageModal from "../ImageModal/ImageModal";
 
 export default function EmblaCarousel({images}) {
 const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-  Autoplay({ delay: 5000 }),
+  Autoplay({ delay: 4000 }),
   ClassNames(),
 ]);
 
@@ -21,12 +22,24 @@ const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
         if (emblaApi) emblaApi.scrollNext();
       }, [emblaApi]);
 
+const [selectedTitle, setSelectedTitle] = useState(null);
+const [isModalOpen, setIsModalOpen] = useState(false);
+
+const filteredImages = images.filter((image) => image.title === selectedTitle);
+
+function handleImageClick (title) {
+  setSelectedTitle(title);
+  setIsModalOpen(true);
+};
+
+
+
   return (
     <div>
       <ViewportEmblaCarousel ref={emblaRef}>
         <ContentContainer>
           {images.map((image) => (
-            <StyledSlide key={image.id}>
+            <StyledSlide key={image.id} onClick={() => handleImageClick(image.title)}>
               <StyledImage
                 src={image.src}
                 alt={image.alt}
@@ -36,15 +49,17 @@ const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
             </StyledSlide>
           ))}
         </ContentContainer>
+        <ButtonContainer>
+          <StyledButton onClick={scrollPrev}>
+            <ArrowLeft />
+          </StyledButton>
+          <StyledButton onClick={scrollNext}>
+            <ArrowRight />
+          </StyledButton>
+        </ButtonContainer>
       </ViewportEmblaCarousel>
-      <ButtonContainer>
-        <StyledButton onClick={scrollPrev}>
-          <ArrowLeft />
-        </StyledButton>
-        <StyledButton onClick={scrollNext}>
-          <ArrowRight />
-        </StyledButton>
-      </ButtonContainer>
+
+      <ImageModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} images={filteredImages} />
     </div>
   );
 }
@@ -56,8 +71,8 @@ const ViewportEmblaCarousel = styled.div`
   justify-content: center;
   overflow: hidden;
   background-color: var(--black);
+  border-radius: 0px 30px 0px 30px;
   padding: 20px;
-  padding-top: 0;
   position: relative;
   height: 500px;
   width: 100%;
@@ -68,9 +83,8 @@ const ViewportEmblaCarousel = styled.div`
 `;
 const ButtonContainer = styled.div`
   position: absolute;
-  top: 250px;
-  left: 10px;
-  right: 10px;
+  left: 8px;
+  right: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -78,7 +92,6 @@ const ButtonContainer = styled.div`
 
   @media (max-width: 768px) {
     padding: 0 10px;
-    top: 150px;
   }
 `;
 
@@ -119,6 +132,13 @@ const StyledSlide = styled.div`
   min-width: 0;
   position: relative;
   height: 100%;
+  padding: 20px;
+    cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(0.98);
+  }
 `;
 
 const StyledImage = styled(Image)`
