@@ -62,10 +62,15 @@ const TextWrapper = styled.div`
 const StyledHeadline = styled.h2`
   color: var(--yellow);
   font: var(--main-headline);
+  letter-spacing: 0.05rem;
   margin: 0;
   flex-grow: 1;
   overflow: hidden;
   text-transform: uppercase;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const StyledSubheadline = styled.p`
@@ -74,4 +79,8 @@ const StyledSubheadline = styled.p`
   margin-top: 0.5rem;
   flex-grow: 1;
   overflow: hidden;
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;

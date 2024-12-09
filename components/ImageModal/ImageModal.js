@@ -11,25 +11,21 @@ export default function ImageModal({isOpen, onClose, project}) {
        <IconWrapper onClick={onClose}>
          <StyledCloseIcon />
        </IconWrapper>
-         <StyledTextWrapper>
-              <StyledHeadline>{project.title}</StyledHeadline>
-              <StyledSubheadline>{project.agency}</StyledSubheadline>
-              <StyledText>{project.description}</StyledText>
-            </StyledTextWrapper>
+       <StyledTextWrapper>
+         <StyledHeadline>{project.title}</StyledHeadline>
+         <StyledSubheadline>{project.agency}</StyledSubheadline>
+         <StyledText>{project.description}</StyledText>
+       </StyledTextWrapper>
        <ImageGrid>
          {project.images.map((image) => (
            <ImageWrapper
              key={image.id}
              className={
-               image.id === 0
+               image.id % 5 === 0
                  ? "large"
                  : image.id % 3 === 0
-                    ? "extralarge"
-                    : image.id % 4 === 0
                  ? "wide"
-                 : image.id % 5 === 0
-                    ? "extrawide"
-                    : image.id % 2 === 0
+                 : image.id % 2 === 0
                  ? "tall"
                  : ""
              }
@@ -63,14 +59,18 @@ const ModalOverlay = styled.div`
 
 const ModalContent = styled.div`
   background: var(--black);
-  top: 9vh;
   padding: 20px;
+  top: 9vh;
   border-radius: 0 10px 0 10px;
   width: 90%;
   max-width: 1200px;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
+
+  @media (min-width: 768px) {
+    top: 9vh;
+  }
 `;
 
 const IconWrapper = styled.div`
@@ -120,21 +120,26 @@ const StyledText = styled.p`
   color: var(--white);
   text-align: center;
   font-size: 0.8rem;	
-  margin: 0;
-  margin-top: 0.5rem;
+  padding: 20px 0px 0px 0px;
   flex-grow: 1;
   overflow: hidden;
+
+  @media (min-width: 768px) {
+    padding: 20px 50px 0px 50px;
+    font-size: 1rem;
+  }
 `;
 
 const ImageGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 200px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 125px;
   gap: 20px;
   padding: 20px;
 
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
   }
 `;
 
@@ -142,32 +147,29 @@ const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-
-  &.large {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
 
   &.wide {
     grid-column: span 2;
   }
 
-  &.tall {
-    grid-row: span 2;
-  }
-
   @media (min-width: 768px) {
-    &.extralarge {
-      grid-column: span 4;
-      grid-row: span 4;
+    &.large {
+      grid-column: span 2;
+      grid-row: span 2;
     }
-
-    &.extrawide {
-      grid-column: span 4;
+    
+    &.tall {
+      grid-row: span 3;
     }
   }
 `;
 
 const StyledImage = styled(Image)`
-  object-fit: cover;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
 `;

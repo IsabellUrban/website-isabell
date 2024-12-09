@@ -48,21 +48,27 @@ const TextWrapper = styled.div`
 const StyledHeadline = styled.h2`
   color: var(--yellow);
   font: var(--main-headline);
+  text-align: center;
   margin: 0;
   flex-grow: 1;
   overflow: hidden;
   text-transform: uppercase;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const StyledSubheadline = styled.p`
   font: var(--sub-headline);
+  text-align: center;
   margin: 0;
   margin-top: 0.5rem;
   flex-grow: 1;
   overflow: hidden;
 
-    @media (min-width: 768px) {
-  text-align: center;
-    }
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 

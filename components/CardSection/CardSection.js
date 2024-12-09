@@ -91,10 +91,11 @@ const StyledHeadline = styled.p`
   margin: 0;
   flex-grow: 1;
   overflow: hidden;
+  letter-spacing: 0.05rem;
 
-    @media (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 1.5rem;
-    }
+  }
 `;
 
 const StyledSubheadline = styled.p`

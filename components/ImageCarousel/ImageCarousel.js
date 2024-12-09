@@ -87,11 +87,11 @@ const ViewportEmblaCarousel = styled.div`
   border-radius: 0px 30px 0px 30px;
   padding: 20px;
   position: relative;
-  height: 500px;
+  height: 300px;
   width: 100%;
 
-  @media (max-width: 768px) {
-    height: 300px;
+  @media (min-width: 768px) {
+    height: 500px;
   }
 `;
 const ButtonContainer = styled.div`
@@ -104,8 +104,9 @@ const ButtonContainer = styled.div`
   z-index: 2;
   pointer-events: none;
 
-  @media (max-width: 768px) {
-    padding: 0 10px;
+  @media (min-width: 768px) {
+    left: 20px;
+    right: 20px;
   }
 `;
 
@@ -114,8 +115,8 @@ const StyledButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height:30px;
   background: var(--white);
   border-radius: 50%;
   border-style: none;
@@ -130,9 +131,9 @@ const StyledButton = styled.button`
     outline: none;
   }
 
-  @media (max-width: 768px) {
-    width: 30px;
-    height: 30px;
+  @media (min-width: 768px) {
+    width: 40px;
+    height: 40px;
   }
 `;
 

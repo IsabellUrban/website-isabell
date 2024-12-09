@@ -56,6 +56,4 @@ export default createGlobalStyle`
   main {
     flex: 1;
   }
-
-
 `;
