@@ -87,7 +87,7 @@ const StyledLogo = styled(Logo2)`
   }
 
   @media (min-width: 768px) {
-    width: 10vh;
+    width: 9vh;
     height: auto;
   }
 `;

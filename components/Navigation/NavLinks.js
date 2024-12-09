@@ -16,7 +16,7 @@ export default function NavLinks({ isMenuOpen, handleLinkClick }) {
         <StyledLink href="/graphic" onClick={handleLinkClick}>
           GRAPHIC DESIGN
         </StyledLink>
-        <StyledLink href="/development" onClick={handleLinkClick}>
+        <StyledLink href="/webdevelopment" onClick={handleLinkClick}>
           WEB DEVELOPMENT
         </StyledLink>
         <StyledLink href="/contact" onClick={handleLinkClick}>

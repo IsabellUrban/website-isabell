@@ -88,20 +88,33 @@ const HeadlineWrapper = styled.div`
 `;
 
 const StyledHeadline = styled.h2`
-    font: var(--main-headline);
-    color: var(--white);
-    font-size: 1.5rem;
-    text-transform: uppercase;
+  font: var(--main-headline);
+  color: var(--white);
+  letter-spacing: 0.07rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const StyledSubheadline = styled.h3`
     font: var(--sub-headline);
     color: var(--white);
     text-align: center;
+
+    @media (min-width: 768px) {
+        font-size: 1.25rem;
+    }
 `;
 
 const StyledText = styled.p`
   font: var(--text);
   color: var(--white);
   white-space: pre-wrap;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
 `;
