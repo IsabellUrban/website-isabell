@@ -11,7 +11,7 @@ export default function EmblaCarousel({projects}) {
 const [emblaRef, emblaApi] = useEmblaCarousel(
   { loop: true, draggable: true, skipSnaps: false },
   [
-    Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true }),
+    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true }),
   ]
 );
 

@@ -20,15 +20,7 @@ export default function ImageModal({isOpen, onClose, project}) {
          {project.images.map((image) => (
            <ImageWrapper
              key={image.id}
-             className={
-               image.id % 5 === 0
-                 ? "large"
-                 : image.id % 3 === 0
-                 ? "wide"
-                 : image.id % 2 === 0
-                 ? "tall"
-                 : ""
-             }
+             className={image.layout}
            >
              <StyledImage
                src={image.src}
@@ -63,6 +55,7 @@ const ModalContent = styled.div`
   top: 9vh;
   border-radius: 0 10px 0 10px;
   width: 90%;
+  height: 90%;
   max-width: 1200px;
   max-height: 90vh;
   overflow-y: auto;
@@ -100,15 +93,23 @@ const StyledTextWrapper = styled.div`
 const StyledHeadline = styled.h3`
   color: var(--yellow);
   font: var(--main-headline);
+  font-size: 1.5rem;
+  text-align: center;
   margin: 0;
   flex-grow: 1;
   overflow: hidden;
   text-transform: uppercase;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const StyledSubheadline = styled.p`
   font: var(--sub-headline);
   color: var(--white);
+  font-size: 1rem;
+  text-align: center;
   margin: 0;
   margin-top: 0.5rem;
   flex-grow: 1;
@@ -156,13 +157,26 @@ const ImageWrapper = styled.div`
     grid-column: span 2;
   }
 
+  &.large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  &.tall {
+    grid-row: span 2;
+  }
+
   @media (min-width: 768px) {
-    &.large {
+    &.dektop-wide {
+      grid-column: span 2;
+    }
+
+    &.dektop-large {
       grid-column: span 2;
       grid-row: span 2;
     }
-    
-    &.tall {
+
+    &.desktop-tall {
       grid-row: span 3;
     }
   }
