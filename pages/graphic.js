@@ -3,6 +3,7 @@ import { GridMain, GridItem } from "@/styles/grid";
 import EmblaCarousel from "@/components/ImageCarousel/ImageCarousel";
 import {projects} from "@/lib/data-images";
 
+
 export default function GraphicPortfolio() {
     return (
       <GridMain>

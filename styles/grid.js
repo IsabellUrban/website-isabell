@@ -17,7 +17,7 @@ export const GridMain = styled.main`
   margin: 0 auto;
   width: 100%;
   margin-top: 7rem;
-  margin-bottom: 7rem;
+  margin-bottom: 2rem;
   position: relative;
   display: grid;
   grid-template-rows: ${gridVariables.mobile.rows};
@@ -30,7 +30,8 @@ export const GridMain = styled.main`
     grid-template-columns: ${gridVariables.desktop.columns};
     gap: ${gridVariables.desktop.gap};
     padding: 0;
-    margin-top: 9rem;
+    margin-top: 7rem;
+    margin-bottom: 3rem;
   }
 `;
 

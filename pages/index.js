@@ -9,13 +9,14 @@ import macbook from "@/public/images/macbook.jpg";
 import grafik from "@/public/images/grafik.png";
 import web from "@/public/images/web.png";
 import TextSection from "@/components/TextSection/TextSection";
+import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackground";
+
+import { motion } from "motion/react";
 
 export default function HomePage() {
   return (
     <Layout>
-      <BackgroundWrapper>
-        <StyledBackground src={hintergrund03} alt="Background" />
-      </BackgroundWrapper>
+      <AnimatedBackground />
       <GridMain>
         <GridItem
           $colSpan="1 / span 4"
@@ -23,11 +24,17 @@ export default function HomePage() {
           $rowSpan="1"
           $rowSpanMd="1 / span 2"
         >
-          <HeroSection
-            image={Profilbild02}
-            title="Hi I'm Isabell"
-            subtitle="Frontend Web Developer and Graphic Designer with a passion for creating beautiful and functional designs."
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <HeroSection
+              image={Profilbild02}
+              title="Hi I'm Isabell"
+              subtitle="Frontend Web Developer and Graphic Designer with a passion for creating beautiful and functional designs."
+            />
+          </motion.div>
         </GridItem>
 
         <GridItem
@@ -91,7 +98,7 @@ const Layout = styled.div`
 `;
 
 const BackgroundWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
