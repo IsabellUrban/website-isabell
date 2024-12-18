@@ -4,13 +4,11 @@ import { GridMain, GridItem } from "@/styles/grid";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import CardSection from "@/components/CardSection/CardSection";
 import Profilbild02 from "@/public/images/Profilbild02.jpg";
-import hintergrund03 from "@/public/images/hintergrund03.jpg";
 import macbook from "@/public/images/macbook.jpg";
 import grafik from "@/public/images/grafik.png";
 import web from "@/public/images/web.png";
 import TextSection from "@/components/TextSection/TextSection";
 import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackground";
-
 import { motion } from "motion/react";
 
 export default function HomePage() {
@@ -95,25 +93,5 @@ const Layout = styled.div`
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-`;
-
-const BackgroundWrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;`
-
-const StyledBackground = styled(Image)`
-  visibility: hidden;
-  width: 100%;
-  height: 100%;
-
-  @media (min-width: 768px) {
-    visibility: visible;
-    object-fit: cover;
-    opacity: 0.25;
-    z-index: 1;
-  }
 `;
 
