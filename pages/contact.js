@@ -3,6 +3,7 @@ import { GridMain, GridItem } from "@/styles/grid";
 import { motion } from "motion/react";
 import Mail from "@/public/icons/Mail.svg";
 import Linkedin from "@/public/icons/Linkedin.svg";
+import Github from "@/public/icons/Github.svg";
 
 export default function Contact() {
     return (
@@ -32,32 +33,59 @@ export default function Contact() {
           $colSpanMd="3 / span 6"
           $rowSpan="2"
           $rowSpanMd="2"
+          css={`
+            margin-top: -10rem;
+            @media (min-width: 768px) {
+              margin-top: 0;
+            }
+          `}
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <ContentWrapper>
               <ImageWrapper>
-                <Mail alt="Mail Icon" width={20} height={20} />
+                <Mail alt="Mail Icon" width="100%" height="100%" />
               </ImageWrapper>
               <TextWrapper>
                 <StyledText href="mailto:mail@isabellurban.com">
-                  {" "}
                   mail@isabellurban.com
                 </StyledText>
               </TextWrapper>
             </ContentWrapper>
+          </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             <ContentWrapper>
               <ImageWrapper>
-                <Linkedin alt="Mail Icon" width={20} height={20} />
+                <Linkedin alt="Linkedin Icon" width="100%" height="100%" />
               </ImageWrapper>
               <TextWrapper>
                 <StyledText href="https://www.linkedin.com/in/isabell-urban/">
-                  {" "}
-                  linkedin.com/in/isabell-urban
+                  LinkedIn
+                </StyledText>
+              </TextWrapper>
+            </ContentWrapper>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <ContentWrapper>
+              <ImageWrapper>
+                <Github alt="Github Icon" width="100%" height="100%" />
+              </ImageWrapper>
+              <TextWrapper>
+                <StyledText href="https://github.com/IsabellUrban">
+                  GitHub
                 </StyledText>
               </TextWrapper>
             </ContentWrapper>
@@ -67,34 +95,17 @@ export default function Contact() {
     );
 }
 
-const ContentWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 5px;
-  padding: 10px;
-  background-color: var(--white);
-
-  @media (min-width: 768px) {
-    justify-content: center;
-  }
-`;
-
-const ImageWrapper = styled.div`
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-`;
 
 const TextWrapperHeadline = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1rem;
 
   @media (min-width: 768px) {
     padding: 1rem 0rem;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -125,9 +136,60 @@ const StyledSubheadline = styled.p`
   }
 `;
 
+const StyledText = styled.a`
+  font: var(--text);
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+  }
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 10px;
+  background-color: var(--yellow);
+  border-radius: 0 0 10px 0;
+  color: var(--black);
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--black);
+    color: var(--yellow);
+
+    ${StyledText} {
+      color: var(--yellow);
+    }
+  }
+  @media (min-width: 768px) {
+    border-radius: 0 0 20px 0;
+    padding: 0 0 0 30px;
+    gap: 10px;
+  }
+`;
 
 
 
+const ImageWrapper = styled.div`
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 20px;
+  height: 20px;
+
+  @media (min-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
+`;
 
 const TextWrapper = styled.div`
   display: flex;
@@ -137,23 +199,9 @@ const TextWrapper = styled.div`
 
   @media (min-width: 768px) {
     max-width: 800px;
-    justify-content: center;
     padding: 1.5rem;
   }
 `;
 
-const StyledText = styled.a`
-  font: var(--sub-headline);
-  color: var(--black);
-  text-decoration: none;
-  text-align: center;
 
-  :hover {
-    color: var(--yellow);
-  }
-
-  @media (min-width: 768px) {
-    font-size: 1rem;
-  }
-`;
 
