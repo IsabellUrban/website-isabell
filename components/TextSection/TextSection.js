@@ -34,6 +34,21 @@ const StyledTextSection = styled.div`
   padding: 1.5rem;
   overflow: hidden;
   gap: 1rem;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+  z-index: 2;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   @media (min-width: 768px) {
     width: 100%;
@@ -70,7 +85,6 @@ const TextWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 0.25rem;
-  padding: 0.9rem;
 
     @media (min-width: 768px) {
         max-width: 800px;
@@ -84,24 +98,37 @@ const HeadlineWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 0.25rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
 `;
 
 const StyledHeadline = styled.h2`
-    font: var(--main-headline);
-    color: var(--white);
-    font-size: 1.5rem;
-    text-transform: uppercase;
+  font: var(--main-headline);
+  color: var(--white);
+  letter-spacing: 0.07rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const StyledSubheadline = styled.h3`
     font: var(--sub-headline);
     color: var(--white);
     text-align: center;
+
+    @media (min-width: 768px) {
+        font-size: 1.25rem;
+    }
 `;
 
 const StyledText = styled.p`
   font: var(--text);
   color: var(--white);
   white-space: pre-wrap;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
 `;

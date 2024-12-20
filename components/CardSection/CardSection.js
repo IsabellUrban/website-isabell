@@ -32,10 +32,10 @@ const StyledLink = styled(Link)`
   color: inherit;
   display: block;
   height: 100%;
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease;
 
   &:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
   }
 `;
 
@@ -92,9 +92,10 @@ const StyledHeadline = styled.p`
   flex-grow: 1;
   overflow: hidden;
 
-    @media (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 1.5rem;
-    }
+    letter-spacing: 0.05rem;
+  }
 `;
 
 const StyledSubheadline = styled.p`

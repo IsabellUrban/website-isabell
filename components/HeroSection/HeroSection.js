@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 export default function HeroSection({ image, title, subtitle }) {
     return (
@@ -21,10 +22,10 @@ const ImageWrapper = styled.div`
   height: 100%;
 `;
 
-const ProfileImage = styled(Image)`
-  /* border-radius: 0px 50px 0px 50px; */
+const ProfileImage = styled(motion(Image))`
   width: 100%;
   height: auto;
+  animation: float 6s ease-in-out infinite;
 
   @media (min-width: 768px) {
     max-height: 400px;
@@ -40,7 +41,7 @@ const StyledSection = styled.section`
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   padding: 1.5rem;
   border-radius: 50px 0px 50px 0px;
   max-width: 85%;
@@ -63,10 +64,16 @@ const TextWrapper = styled.div`
 const StyledHeadline = styled.h2`
   color: var(--yellow);
   font: var(--main-headline);
+  letter-spacing: 0.05rem;
   margin: 0;
   flex-grow: 1;
   overflow: hidden;
   text-transform: uppercase;
+  animation: float 6s ease-in-out infinite;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const StyledSubheadline = styled.p`
@@ -75,4 +82,8 @@ const StyledSubheadline = styled.p`
   margin-top: 0.5rem;
   flex-grow: 1;
   overflow: hidden;
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;

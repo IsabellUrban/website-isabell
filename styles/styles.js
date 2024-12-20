@@ -32,12 +32,12 @@ export default createGlobalStyle`
     --orange: #F27457;
     --green:#36735f;
     --rosa: #F4E2DE;
-    --schwarz: #000000;
+    --black: #000000;
     --white: #ffffff;
 
     --main-headline:  700 1.7rem ${limelight.style.fontFamily}, system-ui;
-    --sub-headline:  400 1.1rem ${montserrat.style.fontFamily}, system-ui;
-    --text: 500 1rem ${montserrat.style.fontFamily}, system
+    --sub-headline:  400 1rem ${montserrat.style.fontFamily}, system-ui;
+    --text: 500 0.9rem ${montserrat.style.fontFamily}, system
   }
     
   html,
@@ -56,6 +56,4 @@ export default createGlobalStyle`
   main {
     flex: 1;
   }
-
-
 `;

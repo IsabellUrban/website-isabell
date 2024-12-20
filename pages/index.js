@@ -4,18 +4,17 @@ import { GridMain, GridItem } from "@/styles/grid";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import CardSection from "@/components/CardSection/CardSection";
 import Profilbild02 from "@/public/images/Profilbild02.jpg";
-import hintergrund03 from "@/public/images/hintergrund03.jpg";
 import macbook from "@/public/images/macbook.jpg";
 import grafik from "@/public/images/grafik.png";
 import web from "@/public/images/web.png";
 import TextSection from "@/components/TextSection/TextSection";
+import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackground";
+import { motion } from "motion/react";
 
 export default function HomePage() {
   return (
     <Layout>
-      <BackgroundWrapper>
-        <StyledBackground src={hintergrund03} alt="Background" />
-      </BackgroundWrapper>
+      <AnimatedBackground />
       <GridMain>
         <GridItem
           $colSpan="1 / span 4"
@@ -23,11 +22,17 @@ export default function HomePage() {
           $rowSpan="1"
           $rowSpanMd="1 / span 2"
         >
-          <HeroSection
-            image={Profilbild02}
-            title="Hi I'm Isabell"
-            subtitle="Frontend Web Developer and Graphic Designer with a passion for creating beautiful and functional designs."
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <HeroSection
+              image={Profilbild02}
+              title="Hi I'm Isabell"
+              subtitle="Frontend Web Developer and Graphic Designer with a passion for creating beautiful and functional designs."
+            />
+          </motion.div>
         </GridItem>
 
         <GridItem
@@ -62,7 +67,7 @@ Clean code, beautiful design and a seamless user experience are key. If you're l
             image={grafik}
             title="Graphic Design"
             subtitle="Dive into my graphic design portfolio to uncover creative projects!"
-            href="/graphic-design"
+            href="/graphic"
           />
         </GridItem>
         <GridItem
@@ -75,7 +80,7 @@ Clean code, beautiful design and a seamless user experience are key. If you're l
             image={web}
             title="Web Development"
             subtitle="Check out my portfolio to see examples of my web development work and coding skills."
-            href="/web-development"
+            href="/webdevelopment"
           />
         </GridItem>
       </GridMain>
@@ -88,25 +93,5 @@ const Layout = styled.div`
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-`;
-
-const BackgroundWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;`
-
-const StyledBackground = styled(Image)`
-  visibility: hidden;
-  width: 100%;
-  height: 100%;
-
-  @media (min-width: 768px) {
-    visibility: visible;
-    object-fit: cover;
-    opacity: 0.25;
-    z-index: 1;
-  }
 `;
 
