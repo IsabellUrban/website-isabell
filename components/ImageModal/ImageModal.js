@@ -180,6 +180,11 @@ const ImageWrapper = styled.div`
       grid-row: span 3;
     }
   }
+
+  &:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
 `;
 
 const StyledImage = styled(Image)`
