@@ -34,6 +34,7 @@ export default createGlobalStyle`
     --rosa: #F4E2DE;
     --black: #000000;
     --white: #ffffff;
+    --light-grey:#f5f5f5;
 
     --main-headline:  700 1.7rem ${limelight.style.fontFamily}, system-ui;
     --sub-headline:  400 1rem ${montserrat.style.fontFamily}, system-ui;

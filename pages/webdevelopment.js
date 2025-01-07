@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { GridMain, GridItem } from "@/styles/grid";
 import { motion } from "motion/react";
-import LogoBrainStack from "@/public/images/brainstack/LogoBrainStack.svg";
 import WebCardSection from "@/components/WebCardSection/WebCardSection";
 import { webProjects } from "@/lib/data-web";
 
@@ -31,17 +30,15 @@ export default function WebDevelopmentPortfolio() {
       <GridItem
         $colSpan="1 / span 4"
         $colSpanMd="2 / span 8"
-        $rowSpan="2"
-        $rowSpanMd="2 / span 2"
+        $rowSpan="auto"
+        $rowSpanMd="auto"
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <WebCardSection
-           webProjects={webProjects}
-          ></WebCardSection>
+          <WebCardSection webProjects={webProjects}></WebCardSection>
         </motion.div>
       </GridItem>
     </GridMain>

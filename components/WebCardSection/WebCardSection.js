@@ -10,8 +10,11 @@ if (!webProjects || webProjects.length === 0) {
   return (
     <StyledCardSection>
       {webProjects.map((webProject) => (
-      <CardContentContainer key={webProject.id}>
-        <HeaderWrapper>
+        <CardContentContainer
+          key={webProject.id}
+          $highlight={webProject.highlight}
+        >
+          <HeaderWrapper>
             <ImageWrapper>
               <StyledImage
                 src={webProject.image}
@@ -25,49 +28,69 @@ if (!webProjects || webProjects.length === 0) {
               <StyledRole>{webProject.role}</StyledRole>
             </TitleRoleWrapper>
           </HeaderWrapper>
-            <ContentWrapper>
-              <StyledToolsList>
-                {webProject.tools.map((tool) => (
-    
-              <StyledTool key={tool}>{tool}</StyledTool>
-              
+          <ContentWrapper>
+            <StyledToolsList>
+              {webProject.tools.map((tool) => (
+                <StyledTool key={tool}>{tool}</StyledTool>
               ))}
-              </StyledToolsList>
-              <StyledText>{webProject.text}</StyledText>
-              <ButtonWrapper>
-              <StyledButton href={webProject.link} target="_blank" rel="noopener noreferrer">
+            </StyledToolsList>
+            <StyledText>{webProject.text}</StyledText>
+            <ButtonWrapper>
+              <StyledButton
+                href={webProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Project Website
               </StyledButton>
-              <StyledButton href={webProject.repository} target="_blank" rel="noopener noreferrer">
+              <StyledButton
+                href={webProject.repository}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 GitHub Repo
               </StyledButton>
             </ButtonWrapper>
-            </ContentWrapper>
-      </CardContentContainer>
+          </ContentWrapper>
+        </CardContentContainer>
       ))}
     </StyledCardSection>
   );
 }
 
-
 const StyledCardSection = styled.div`
-  display: flex;
-  height: 100%;
-  background-color: var(--rosa);
-  padding: 1rem;
-  border-radius: 0px 50px 0px 50px;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 1fr;
 
   @media (min-width: 768px) {
-    max-width: 500px;
+    grid-template-columns: repeat(6, 1fr);
   }
 `;
 
 const CardContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 1rem 1rem 2rem 1rem;
   gap: 1rem;
+  border-radius: 0px 50px 0px 50px;
+  grid-column: span 2;
+  background-color: var(--light-grey);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+
+  ${({ $highlight }) =>
+    $highlight &&
+    `
+    background-color: var(--rosa);
+
+    @media (min-width: 768px) {
+    grid-column: span 4;
+    }
+  `}
 `;
+
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -116,11 +139,6 @@ const StyledHeadline = styled.h2`
   margin: 0;
   flex-grow: 1;
   overflow: hidden;
-
-  @media (min-width: 768px) {
-    font-size: 1.5rem;
-    letter-spacing: 0.05rem;
-  }
 `;
 
 const StyledRole = styled.h3`
@@ -184,12 +202,13 @@ const StyledButton = styled.a`
   font: var(--text);
   font-weight: 500;
   font-size: 0.8rem;
-  transition: all 0.3s ease;
 
   &:hover {
     background-color: var(--black);
     color: var(--yellow);
     font-weight: 700;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
   }
 `;
 
