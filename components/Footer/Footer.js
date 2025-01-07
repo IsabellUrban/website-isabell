@@ -1,12 +1,10 @@
 import styled from "styled-components";
-import Logo2 from "@/public/logo/Logo2.svg";
 import Link from "next/link";
 
 export default function Footer() {
   return (
     <FooterWrapper>
       <WrapperLogoCopywrite>
-        <StyledLogo />
         <StyledFooterText>© 2024 Isabell Urban</StyledFooterText>
       </WrapperLogoCopywrite>
       <WrapperLinks>
@@ -36,18 +34,6 @@ const WrapperLogoCopywrite = styled.div`
   align-items: center;
   gap: 1rem;
   flex: 0 1 auto;
-`;
-
-const StyledLogo = styled(Logo2)`
-  width: 4vh;
-  height: auto;
-  color: var(--white);
-
-
-  @media (min-width: 768px) {
-    width: 5vh;
-    height: auto;
-  }
 `;
 
 const WrapperLinks = styled.div`

@@ -24,8 +24,12 @@ if (!webProjects || webProjects.length === 0) {
               />
             </ImageWrapper>
             <TitleRoleWrapper>
-              <StyledHeadline>{webProject.title}</StyledHeadline>
-              <StyledRole>{webProject.role}</StyledRole>
+              <StyledHeadline $highlight={webProject.highlight}>
+                {webProject.title}
+              </StyledHeadline>
+              <StyledRole $highlight={webProject.highlight}>
+                {webProject.role}
+              </StyledRole>
             </TitleRoleWrapper>
           </HeaderWrapper>
           <ContentWrapper>
@@ -135,10 +139,18 @@ const StyledImage = styled(Image)`
 const StyledHeadline = styled.h2`
   color: var(--black);
   font: var(--main-headline);
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin: 0;
   flex-grow: 1;
   overflow: hidden;
+
+  ${({ $highlight }) =>
+    $highlight &&
+    `
+    @media (min-width: 768px) {
+    font-size: 1.75rem;
+    }
+  `}
 `;
 
 const StyledRole = styled.h3`
@@ -152,6 +164,14 @@ const StyledRole = styled.h3`
   @media (min-width: 768px) {
     font-size: 1rem;
   }
+
+  ${({ $highlight }) =>
+    $highlight &&
+    `
+    @media (min-width: 768px) {
+    font-size: 1.1rem;
+    }
+  `}
 `;
 
 const StyledToolsList = styled.div`
