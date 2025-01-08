@@ -66,7 +66,7 @@ const StyledCardSection = styled.div`
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-auto-rows: 1fr;
+  grid-auto-rows: max-content;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(6, 1fr);
