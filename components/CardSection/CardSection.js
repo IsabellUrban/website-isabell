@@ -39,7 +39,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const StyledCardSection = styled.div`
+const StyledCardSection = styled.article`
   display: flex;
   height: 100%;
   background-color: var(--rosa);
@@ -78,13 +78,13 @@ const StyledImage = styled(Image)`
   }
 `;
 
-const TextWrapper = styled.div`
+const TextWrapper = styled.header`
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 `;
 
-const StyledHeadline = styled.p`
+const StyledHeadline = styled.h2`
   color: #000;
   font: var(--main-headline);
   font-size: 1.2rem;

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <FooterWrapper>
+    <FooterWrapper role="contentinfo">
       <WrapperLogoCopywrite>
         <StyledFooterText>© 2024 Isabell Urban</StyledFooterText>
       </WrapperLogoCopywrite>
@@ -36,7 +36,7 @@ const WrapperLogoCopywrite = styled.div`
   flex: 0 1 auto;
 `;
 
-const WrapperLinks = styled.div`
+const WrapperLinks = styled.nav`
   display: flex;
   justify-content: flex-end;
   align-items: center;

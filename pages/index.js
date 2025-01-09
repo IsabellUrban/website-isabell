@@ -3,7 +3,7 @@ import { GridMain, GridItem } from "@/styles/grid";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import CardSection from "@/components/CardSection/CardSection";
 import Profilbild02 from "@/public/images/Profilbild02.jpg";
-import macbook from "@/public/images/macbook.jpg";
+import desk from "@/public/images/desk.jpg";
 import grafik from "@/public/images/grafik.png";
 import web from "@/public/images/web.png";
 import TextSection from "@/components/TextSection/TextSection";
@@ -30,6 +30,7 @@ export default function HomePage() {
               image={Profilbild02}
               title="Hi I'm Isabell"
               subtitle="Frontend Web Developer and Graphic Designer with a passion for creating beautiful and functional designs."
+              aria-label="Introduction"
             />
           </motion.div>
         </GridItem>
@@ -41,7 +42,7 @@ export default function HomePage() {
           $rowSpanMd="5 / span 2"
         >
           <TextSection
-            image={macbook}
+            image={desk}
             title={`Nice to meet you!`}
             subheadline={`Something about me:`}
             text={`I'm an accomplished designer with over a decade of experience in the field. I've worked as a freelancer in both Wellington, New Zealand, and Vancouver, Canada.
