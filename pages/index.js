@@ -28,7 +28,7 @@ export default function HomePage() {
           >
             <HeroSection
               image={Profilbild02}
-              title="Hi I'm Isabell"
+              title="Hey, I'm Isabell"
               subtitle="Frontend Web Developer and Graphic Designer with a passion for creating beautiful and functional designs."
               aria-label="Introduction"
             />
