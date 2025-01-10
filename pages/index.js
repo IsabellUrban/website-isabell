@@ -45,7 +45,7 @@ export default function HomePage() {
             image={desk}
             title={`Nice to meet you!`}
             subheadline={`Something about me:`}
-            text={`With over a decade of design experience, I've had the chance to work as a freelancer in Berlin, Wellington, New Zealand, and Vancouver, Canada.
+            text={`With over a decade of design experience, I've had the chance to work as a freelancer in Berlin (Germany), Wellington (New Zealand), and Vancouver (Canada).
               
 I recently completed an intensive web development bootcamp at Neue Fische, where I learned to code and combined my creative skills with technical know-how.
 
