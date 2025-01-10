@@ -34,10 +34,7 @@ export default function Contact() {
           $rowSpan="2"
           $rowSpanMd="2"
           css={`
-            margin-top: -10rem;
-            @media (min-width: 768px) {
-              margin-top: 0;
-            }
+            margin-top: -12rem;
           `}
         >
           <motion.div
@@ -147,7 +144,7 @@ const StyledText = styled.a`
   }
 `;
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.section`
   display: flex;
   align-items: center;
   justify-content: flex-start;

@@ -21,8 +21,10 @@ export default function GraphicPortfolio() {
             <TextWrapper>
               <StyledHeadline>Graphic Design Portfolio</StyledHeadline>
               <StyledSubheadline>
-                Here&apos;s a glimpse of my diverse graphic design work,
-                showcased across various projects.
+                Here are some examples of my
+                graphic design projects. If you want to see more details about
+                the projects and other samples of my work, just click on the
+                photo.
               </StyledSubheadline>
             </TextWrapper>
           </motion.div>
@@ -32,15 +34,16 @@ export default function GraphicPortfolio() {
           $colSpanMd="2 / span 8"
           $rowSpan="2"
           $rowSpanMd="2 / span 2"
-        > <motion.div
+        >
+          {" "}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-          <EmblaCarousel projects={projects}></EmblaCarousel>
-        </motion.div>
+            <EmblaCarousel projects={projects}></EmblaCarousel>
+          </motion.div>
         </GridItem>
-
       </GridMain>
     );
 

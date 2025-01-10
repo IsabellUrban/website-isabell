@@ -19,7 +19,7 @@ export default function Header () {
 
 return (
   <>
-    <StyledHeader>
+    <StyledHeader role="banner">
       <BarElement />
 
       <LogoWrapper>
@@ -106,7 +106,3 @@ const HiddenHeadline = styled.h1`
   color: #fff;
   visibility: hidden;
 `;
-
-
-
-

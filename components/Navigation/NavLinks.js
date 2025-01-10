@@ -4,22 +4,35 @@ import Link from "next/link";
 export default function NavLinks({ isMenuOpen, handleLinkClick }) {
   return (
     <>
-      <StyledBackground $isMenuOpen={isMenuOpen} onClick={handleLinkClick} />
+      <StyledBackground
+        $isMenuOpen={isMenuOpen}
+        onClick={handleLinkClick}
+        aria-hidden="true"
+      />
       <StyledOpacityContainer
         $isVisible={isMenuOpen}
         onClick={handleLinkClick}
+        aria-hidden="true"
       />
-      <StyledNavLinks $isMenuOpen={isMenuOpen}>
-        <StyledLink href="/" onClick={handleLinkClick}>
+      <StyledNavLinks
+        $isMenuOpen={isMenuOpen}
+        role="navigation"
+        aria-label="Main navigation"
+      >
+        <StyledLink href="/" onClick={handleLinkClick} role="menuitem">
           HOME
         </StyledLink>
-        <StyledLink href="/graphic" onClick={handleLinkClick}>
+        <StyledLink href="/graphic" onClick={handleLinkClick} role="menuitem">
           GRAPHIC DESIGN
         </StyledLink>
-        <StyledLink href="/webdevelopment" onClick={handleLinkClick}>
+        <StyledLink
+          href="/webdevelopment"
+          onClick={handleLinkClick}
+          role="menuitem"
+        >
           WEB DEVELOPMENT
         </StyledLink>
-        <StyledLink href="/contact" onClick={handleLinkClick}>
+        <StyledLink href="/contact" onClick={handleLinkClick} role="menuitem">
           CONTACT
         </StyledLink>
       </StyledNavLinks>

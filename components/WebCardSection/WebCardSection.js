@@ -8,17 +8,18 @@ if (!webProjects || webProjects.length === 0) {
 }
 
   return (
-    <StyledCardSection>
+    <StyledCardSection role="region" aria-label="Web Projects">
       {webProjects.map((webProject) => (
         <CardContentContainer
           key={webProject.id}
           $highlight={webProject.highlight}
+          role="article"
         >
           <HeaderWrapper>
             <ImageWrapper>
               <StyledImage
                 src={webProject.image}
-                alt={webProject.title}
+                alt={`${webProject.title} project thumbnail`}
                 fill
                 sizes="100px"
               />
@@ -62,7 +63,7 @@ if (!webProjects || webProjects.length === 0) {
   );
 }
 
-const StyledCardSection = styled.div`
+const StyledCardSection = styled.section`
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -73,7 +74,7 @@ const StyledCardSection = styled.div`
   }
 `;
 
-const CardContentContainer = styled.div`
+const CardContentContainer = styled.article`
   display: flex;
   flex-direction: column;
   padding: 1rem 1rem 2rem 1rem;
@@ -96,7 +97,7 @@ const CardContentContainer = styled.div`
 `;
 
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.header`
   display: flex;
   gap: 1rem;
   align-items: flex-start;
@@ -174,7 +175,7 @@ const StyledRole = styled.h3`
   `}
 `;
 
-const StyledToolsList = styled.div`
+const StyledToolsList = styled.ul`
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -184,7 +185,7 @@ const StyledToolsList = styled.div`
   gap: 8px 8px;
 `;
 
-const StyledTool = styled.h4`
+const StyledTool = styled.li`
   font: var(--text);
   font-size: 0.8rem;
   background-color: var(--yellow);
@@ -192,6 +193,7 @@ const StyledTool = styled.h4`
   padding: 5px;
   text-align: center;
   color: var(--black);
+  list-style: none;
 `;
 
 const StyledText = styled.p`

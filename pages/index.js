@@ -3,8 +3,8 @@ import { GridMain, GridItem } from "@/styles/grid";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import CardSection from "@/components/CardSection/CardSection";
 import Profilbild02 from "@/public/images/Profilbild02.jpg";
-import macbook from "@/public/images/macbook.jpg";
-import grafik from "@/public/images/grafik.png";
+import desk from "@/public/images/desk.jpg";
+import grafik02 from "@/public/images/grafik02.jpg";
 import web from "@/public/images/web.png";
 import TextSection from "@/components/TextSection/TextSection";
 import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackground";
@@ -30,6 +30,7 @@ export default function HomePage() {
               image={Profilbild02}
               title="Hi I'm Isabell"
               subtitle="Frontend Web Developer and Graphic Designer with a passion for creating beautiful and functional designs."
+              aria-label="Introduction"
             />
           </motion.div>
         </GridItem>
@@ -41,18 +42,16 @@ export default function HomePage() {
           $rowSpanMd="5 / span 2"
         >
           <TextSection
-            image={macbook}
+            image={desk}
             title={`Nice to meet you!`}
             subheadline={`Something about me:`}
-            text={`I'm an accomplished designer with over a decade of experience in the field. I've worked as a freelancer in both Wellington, New Zealand, and Vancouver, Canada.
+            text={`With over a decade of design experience, I've had the chance to work as a freelancer in Berlin, Wellington, New Zealand, and Vancouver, Canada.
+              
+I recently completed an intensive web development bootcamp at Neue Fische, where I learned to code and combined my creative skills with technical know-how.
 
-I recently completed an intensive web development bootcamp at Neue Fische, where I learned to code and merged my creative and technical expertise.
+My design background and attention to detail help me create user-friendly digital experiences that look great and work even better. I’m all about clean code, beautiful design, and seamless user experiences.
 
-My design background and eye for detail make me perfect for web development. 
-
-I am excited to build user-friendly digital experiences that balance functionality with style.
-
-Clean code, beautiful design and a seamless user experience are key. If you're looking for creative and tech-savvy, let's connect!`}
+If you're looking for someone creative and tech-savvy, let's chat!`}
           />
         </GridItem>
 
@@ -63,7 +62,7 @@ Clean code, beautiful design and a seamless user experience are key. If you're l
           $rowSpanMd="7 / span 3"
         >
           <CardSection
-            image={grafik}
+            image={grafik02}
             title="Graphic Design"
             subtitle="Dive into my graphic design portfolio to uncover creative projects!"
             href="/graphic"
