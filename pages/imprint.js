@@ -28,6 +28,9 @@ export default function Imprint() {
           $rowSpanMd="2"
           css={`
             margin-top: -12rem;
+            @media (min-width: 768px) {
+              margin-top: -4.5rem;
+            }
           `}
         >
           <motion.div
