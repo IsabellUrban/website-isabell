@@ -17,17 +17,21 @@ export default function ImageModal({isOpen, onClose, project}) {
          <StyledText>{project.description}</StyledText>
        </StyledTextWrapper>
        <ImageGrid>
-         {project.images.map((image) => (
-           <ImageWrapper
-             key={image.id}
-             className={image.layout}
-           >
-             <StyledImage
-               src={image.src}
-               alt={image.alt}
-               fill
-               sizes="(max-width: 768px) 100vw, 33vw"
-             />
+         {project.media.map((media) => (
+           <ImageWrapper key={media.id} className={media.layout}>
+             {media.type === "video" ? (
+               <StyledVideo controls loop muted autoPlay>
+                 <source src={media.src} type="video/mp4" />
+                 Dein Browser unterstützt dieses Videoformat nicht.
+               </StyledVideo>
+             ) : (
+               <StyledImage
+                 src={media.src}
+                 alt={media.alt}
+                 fill
+                 sizes="(max-width: 768px) 100vw, 33vw"
+               />
+             )}
            </ImageWrapper>
          ))}
        </ImageGrid>
@@ -191,4 +195,10 @@ const StyledImage = styled(Image)`
   object-fit: contain;
   width: 100%;
   height: 100%;
+`;
+
+const StyledVideo = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 `;
