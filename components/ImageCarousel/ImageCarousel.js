@@ -11,7 +11,7 @@ export default function EmblaCarousel({projects}) {
 const [emblaRef, emblaApi] = useEmblaCarousel(
   { loop: true, draggable: true, skipSnaps: false },
   [
-    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true }),
+    Autoplay({ delay: 9000, stopOnInteraction: false, stopOnMouseEnter: true }),
   ]
 );
 
@@ -49,12 +49,19 @@ function handleProjectClick (project) {
               key={project.id}
               onClick={() => handleProjectClick(project)}
             >
-              <StyledImage
-                src={project.preview}
-                alt={`${project.title} preview`}
-                fill
-                priority={project.id === 1}
-              />
+              {project.preview.type === "video" ? (
+                <StyledVideo loop muted autoPlay>
+                  <source src={project.preview.src} type="video/mp4" />
+                  Dein Browser unterstützt dieses Videoformat nicht.
+                </StyledVideo>
+              ) : (
+                <StyledImage
+                  src={project.preview.src}
+                  alt={`${project.title} preview`}
+                  fill
+                  priority={project.id === 1}
+                />
+              )}
             </StyledSlide>
           ))}
         </ContentContainer>
@@ -162,5 +169,11 @@ const StyledImage = styled(Image)`
   height: unset;
   object-fit: contain;
   object-position: center;
+`;
+
+const StyledVideo = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 `;
 
