@@ -62,7 +62,7 @@ const TextWrapper = styled.div`
 `;
 
 const StyledHeadline = styled.h2`
-  color: var(--yellow);
+  color: var(--black);
   font: var(--main-headline);
   letter-spacing: 0.05rem;
   margin: 0;

@@ -37,13 +37,26 @@ export default function AnimatedBackground() {
         initial={{ y: 200, opacity: 1 }}
         animate={{ y: 60, opacity: 0.25 }}
         transition={{ duration: 0.75, ease: "easeOut" }}
-        style={{ bottom: "13%", left: "8%" }}
+        style={{ top: "13%", left: "8%" }}
       >
         <Image
           src="/icons/Graphic06.svg"
           alt="Decorative graphic"
           width={400}
           height={400}
+        />
+      </AnimatedGraphic>
+      <AnimatedGraphic
+        initial={{ y: -30, opacity: 1 }}
+        animate={{ y: 20, opacity: 0.25 }}
+        transition={{ duration: 0.75, ease: "easeOut" }}
+        style={{ top: "-15%", left: "0%" }}
+      >
+        <Image
+          src="/icons/Graphic05.svg"
+          alt="Decorative graphic"
+          width={350}
+          height={350}
         />
       </AnimatedGraphic>
     </Wrapper>

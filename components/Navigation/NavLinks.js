@@ -92,6 +92,7 @@ const StyledLink = styled(Link)`
     &:hover {
       color: var(--yellow);
       transform: scale(1.02);
+      font-weight: 600;
     }
   }
 `;

@@ -79,11 +79,11 @@ const LogoWrapper = styled.div`
 const StyledLogo = styled(Logo2)`
   width: 8vh;
   height: auto;
-  color: #000;
+  color: var(--black);
 
   &:hover {
     transform: scale(1.02);
-    color: var(--yellow);
+    color: var(--orange);
   }
 
   @media (min-width: 768px) {
