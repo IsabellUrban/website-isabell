@@ -91,7 +91,7 @@ const CardContentContainer = styled.article`
     background-color: var(--rosa);
 
     @media (min-width: 768px) {
-    grid-column: span 4;
+    grid-column: span 3;
     }
   `}
 `;

@@ -56,7 +56,7 @@ export default function Privacypolicy() {
                 <br /> Isabell Urban <br />
                 Kopenhagener Straße 48,
                 <br /> 10437 Berlin, Germany <br />
-                Phone: +49 (0) 1733206254 <br /> Email: mail@isabellurban.com
+                Email: mail@isabellurban.com
                 <br />
                 <br />
                 How Data is Collected: Data may be collected directly, such as
