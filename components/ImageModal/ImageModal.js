@@ -1,43 +1,87 @@
 import styled from "styled-components";
 import Image from "next/image";
 import X from "@/public/icons/X.svg";
+import { useState } from "react";
+import { motion } from "motion/react";
 
-export default function ImageModal({isOpen, onClose, project}) {
- if (!isOpen || !project) return null;
+export default function ImageModal({ isOpen, onClose, project }) {
+  const [zoomedImage, setZoomedImage] = useState(null);
 
- return (
-   <ModalOverlay onClick={onClose}>
-     <ModalContent onClick={(event) => event.stopPropagation()}>
-       <IconWrapper onClick={onClose}>
-         <StyledCloseIcon />
-       </IconWrapper>
-       <StyledTextWrapper>
-         <StyledHeadline>{project.title}</StyledHeadline>
-         <StyledSubheadline>{project.agency}</StyledSubheadline>
-         <StyledText>{project.description}</StyledText>
-       </StyledTextWrapper>
-       <ImageGrid>
-         {project.media.map((media) => (
-           <ImageWrapper key={media.id} className={media.layout}>
-             {media.type === "video" ? (
-               <StyledVideo controls loop muted autoPlay>
-                 <source src={media.src} type="video/mp4" />
-                 Dein Browser unterstützt dieses Videoformat nicht.
-               </StyledVideo>
-             ) : (
-               <StyledImage
-                 src={media.src}
-                 alt={media.alt}
-                 fill
-                 sizes="(max-width: 768px) 100vw, 33vw"
-               />
-             )}
-           </ImageWrapper>
-         ))}
-       </ImageGrid>
-     </ModalContent>
-   </ModalOverlay>
- );
+  if (!isOpen || !project) return null;
+
+  function handleZoomImage(mediaItem) {
+    setZoomedImage(mediaItem);
+  }
+
+  return (
+    <ModalOverlay onClick={onClose}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <ModalContent onClick={(event) => event.stopPropagation()}>
+          <IconWrapper onClick={onClose}>
+            <StyledCloseIcon />
+          </IconWrapper>
+          <StyledTextWrapper>
+            <StyledHeadline>{project.title}</StyledHeadline>
+            <StyledSubheadline>{project.agency}</StyledSubheadline>
+            <StyledText>{project.description}</StyledText>
+          </StyledTextWrapper>
+          <ImageGrid>
+            {project.media.map((media) => (
+              <ImageWrapper
+                key={media.id}
+                className={media.layout}
+                onClick={() => handleZoomImage(media)}
+              >
+                {media.type === "video" ? (
+                  <StyledVideo controls loop muted autoPlay>
+                    <source src={media.src} type="video/mp4" />
+                    Dein Browser unterstützt dieses Videoformat nicht.
+                  </StyledVideo>
+                ) : (
+                  <StyledImage
+                    src={media.src}
+                    alt={media.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                )}
+              </ImageWrapper>
+            ))}
+          </ImageGrid>
+
+          {zoomedImage && (
+            <ZoomedImageOverlay>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, type: "tween"  }}
+              >
+                <ZoomedImageWrapper onClick={() => setZoomedImage(null)}>
+                  {zoomedImage.type === "video" ? (
+                    <StyledVideo controls loop muted autoPlay>
+                      <source src={zoomedImage.src} type="video/mp4" />
+                      Dein Browser unterstützt dieses Videoformat nicht.
+                    </StyledVideo>
+                  ) : (
+                    <StyledZoomedImage
+                      src={zoomedImage.src}
+                      alt={zoomedImage.alt}
+                      fill
+                      sizes="90vw"
+                    />
+                  )}
+                </ZoomedImageWrapper>
+              </motion.div>
+            </ZoomedImageOverlay>
+          )}
+        </ModalContent>
+      </motion.div>
+    </ModalOverlay>
+  );
 }
 
 const ModalOverlay = styled.div`
@@ -51,6 +95,7 @@ const ModalOverlay = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  cursor: pointer;
 `;
 
 const ModalContent = styled.div`
@@ -124,7 +169,7 @@ const StyledText = styled.p`
   font: var(--text);
   color: var(--white);
   text-align: center;
-  font-size: 0.8rem;	
+  font-size: 0.8rem;
   padding: 20px 0px 0px 0px;
   flex-grow: 1;
   overflow: hidden;
@@ -200,5 +245,25 @@ const StyledImage = styled(Image)`
 const StyledVideo = styled.video`
   width: 100%;
   height: 100%;
+  object-fit: contain;
+`;
+
+const ZoomedImageOverlay = styled(ModalOverlay)`
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 1010;
+`;
+
+const ZoomedImageWrapper = styled.div`
+  position: relative;
+  display: flex;
+  top: 9vh;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  height: 80vh;
+  cursor: pointer;
+`;
+
+const StyledZoomedImage = styled(Image)`
   object-fit: contain;
 `;

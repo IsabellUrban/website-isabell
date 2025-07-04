@@ -83,7 +83,7 @@ const StyledLogo = styled(Logo2)`
 
   &:hover {
     transform: scale(1.02);
-    color: var(--orange);
+    color: var(--yellow);
   }
 
   @media (min-width: 768px) {

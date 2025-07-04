@@ -49,7 +49,7 @@ export default function AnimatedBackground() {
       <AnimatedGraphic
         initial={{ y: -30, opacity: 1 }}
         animate={{ y: 20, opacity: 0.25 }}
-        transition={{ duration: 0.75, ease: "easeOut" }}
+        transition={{ duration: 1, ease: "easeOut" }}
         style={{ top: "-15%", left: "0%" }}
       >
         <Image

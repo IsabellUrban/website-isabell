@@ -4,16 +4,23 @@ import { motion } from "motion/react";
 
 export default function HeroSection({ image, title, subtitle }) {
     return (
-  <ImageWrapper>
-    <ProfileImage src={image} alt={title} />
-    <StyledSection>
-      <TextWrapper>
-        <StyledHeadline>{title}</StyledHeadline>
-        <StyledSubheadline>{subtitle}</StyledSubheadline>
-      </TextWrapper>
-    </StyledSection>
-  </ImageWrapper>
-);
+      <ImageWrapper>
+        <ProfileImage
+          src={image}
+          alt={title}
+          width={800}
+          height={400}
+          sizes="(max-width: 768px) 100vw, 800px"
+          priority
+        />
+        <StyledSection>
+          <TextWrapper>
+            <StyledHeadline>{title}</StyledHeadline>
+            <StyledSubheadline>{subtitle}</StyledSubheadline>
+          </TextWrapper>
+        </StyledSection>
+      </ImageWrapper>
+    );
 }
 
 const ImageWrapper = styled.div`
@@ -22,13 +29,15 @@ const ImageWrapper = styled.div`
   height: 100%;
 `;
 
-const ProfileImage = styled(motion(Image))`
+const ProfileImage = styled(motion.create(Image))`
   width: 100%;
   height: auto;
   animation: float 6s ease-in-out infinite;
 
   @media (min-width: 768px) {
     max-height: 400px;
+    width: auto;
+    height: auto;
     object-fit: cover;
   }
 `;
